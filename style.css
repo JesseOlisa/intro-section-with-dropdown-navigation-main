@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+/*RESETS*/
+
+/*general*/
+
+/*box-sizing*/
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p
+ {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+.preload * { /*removes transition till after page loads*/
+    transition: none !important ;
+}
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 98%);
+    font-size: 1.125rem;
+    font-family: 'Epilogue', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/*makes image easier to work with*/
+img, picture {
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul, li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: .2rem;
+    color: hsl(0, 0%, 8%);
+}
+
+/* =====
+UTILITY CLASS
+====== */
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header {
+    width: 93%;
+    margin-inline: auto;
+    padding-block: 1.5rem;
+    justify-content: space-between !important;
+}
+.nav-container, .login-container {
+    display: none;
+}
+.nav-links-container li ul {
+    position: relative;
+    padding: .5rem 0;
+    margin: 0;
+    bottom: 100;
+    transition: all 0.3s ease;
+    z-index: 1;
+    display: block;
+}
+.nav-links-container li:hover ul {
+    z-index: 1; 
+}
+.nav-links-container li ul li {
+    justify-content: flex-start;
+    padding-inline: 1rem;
+    width: 100%;
+}
+.sub-link-2 {
+    width: 7rem !important;
+}
+.nav-links-container li ul li a {
+    font-size: 1.02rem;
+    padding-right: 0;
+} 
+
+.nav-links-container li ul li img {
+    padding-right: .5rem;
+}
+.ham-container, .close-btn {
+    width: 30px;
+    aspect-ratio: 1;
+    z-index: 5;
+}
+
+@media screen and (min-width: 35rem){
+    .nav-container {
+        display: block;
+    }
+    .nav-container {
+        padding-block: .8rem;
+        align-self: flex-start;
+    } 
+    .logo-container {
+        margin-top: .55rem;
+    }
+    .logo {
+       min-width: 4.5rem;
+    }
+    .nav-links-container li {
+        padding-right: 1.2rem;
+    }
+    .nav-links-container li, .nav-links-container li a{
+        padding-block: .5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: hsl(0, 0%, 41%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+     
+    .nav-links-container li .down {
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
+    } 
+    .nav-links-container li:hover .down {
+        transform: rotate(180deg);
+    }
+    .nav-links-container li:hover, .nav-links-container a:hover  {
+        color: hsl(0, 0%, 8%);
+    } 
+    
+    .nav-links-container li ul {
+        position: absolute;
+        top: 2.5rem;
+        right: 1.2rem;
+        padding: .5rem 0;    
+        margin: 0;
+        background-color: hsl(0, 0%, 98%);
+        box-shadow: 0px 5px 10px 10px hsla(0, 0%, 41%, 0.2);
+        border-radius: .5rem;
+        width: 9rem;
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+    .nav-links-container li:hover ul {
+        opacity: 1;
+        transform: translateY(0%);
+        z-index: 1;
+    }
+      
+    .ham-container, .close-btn {
+       display: none;
+    }
+}
+
+
+/* =====
+BUTTONS
+===== */
+.btn {
+    padding: .7rem 1.1rem;
+    border: 2px solid hsl(0, 0%, 41%);
+    border-radius: .9rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: hsl(0, 0%, 41%);
+    transition: all 0.1s ease;
+}
+
+.login-container .btn:hover {
+    border-color:  hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 8%); 
+}
+.login-container .btn:first-child{
+    border: 0;
+}
+
+.text-container .btn {
+    padding: .8rem 1.4rem;
+    background-color: hsl(0, 0%, 8%);
+    display: inline-block;
+    color: hsl(0, 0%, 98%);
+    border: 2px solid hsl(0, 0%, 8%);
+    font-size: 1rem;
+    transition: all 0.3s ease; 
+    margin-bottom: 3rem;
+}
+
+.text-container .btn:hover {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 8%);
+}
+@media screen and (min-width: 47.999rem) {
+    .login-container {
+        display: block;
+    }
+    .text-container .btn {
+        padding: 1.15rem 1.8rem;
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 55.999rem) {
+    .btn {
+        padding-inline: 1.4rem;
+    }
+    .text-container .btn {
+        margin-bottom: 6rem;
+    }
+}
+
+/* =======
+MAIN
+======== */
+
+.container {
+    width: 100%;
+    flex-direction: column-reverse;
+    padding-bottom: 2rem;
+}
+.hero-container {
+    width: 100%;
+    aspect-ratio: 1.2;
+    background: url(./images/image-hero-mobile.png) no-repeat top center / contain;
+}
+.text-container {
+    text-align: center;
+    padding-inline: 1rem;
+}
+.text-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+.text-container p {
+    color: hsl(0, 0%, 41%);
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+    max-width: 100%;
+    font-weight: 500;
+}
+.client-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    place-items: center;
+}
+.client-container img {
+    padding-inline: .5rem;
+}
+
+@media screen and (min-width: 47.999rem) {
+    .container {
+        width: 90%;
+        margin-inline: auto;
+        padding-block: 1rem;
+    }
+    .hero-container {
+        width: 80%;
+    }
+    .text-container h1 {
+        font-size: 3.8rem;
+    }
+    .text-container p {
+        font-size: 1.4rem;
+        margin-bottom: 3.4rem;
+        max-width: 75%;
+        margin-inline: auto;
+    }
+}
+@media screen and (min-width: 64rem) {
+    .container {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+    .text-container {
+        width: 50%;
+        padding-top: 7.5rem;
+        padding-inline: 4.1rem;
+        text-align: left;
+    }
+    .hero-container {
+        width: 50%;
+        aspect-ratio: 1;
+        background-image: url(./images/image-hero-desktop.png);
+    }
+    .text-container h1 {
+        font-size: 4.8rem;
+        margin-bottom: 3.2rem;
+    }
+    .text-container p {
+        font-size: 1.3rem;
+        margin-bottom: 3.4rem;
+        max-width: 100%;
+    }
+
+}
+@media screen and (min-width: 55.999rem) and (max-width: 87.5rem) {
+    .text-container {
+        padding-top: 4rem ;
+        padding-inline: 2.1rem;
+        min-width: 20rem;
+    }
+    .text-container h1 {
+        font-size: 4.79rem;
+        margin-bottom: 3.2rem;
+    }
+    .hero-container {
+        min-width: 35rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+   /* ======
+    MOBILE NAV MENU
+    ====== */
+    html {
+        overflow-x: hidden;
+    }
+    .nav-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: hsl(0, 0%, 98%);
+        width: 60%;
+        height: 100vh;
+        z-index: 6;
+        display: block;
+        transform: translateX(100%);
+        transition: transform 0.2s ease;
+    }
+    .show-nav {
+        transform: translateX(0%);
+    }
+    header {
+        overflow-x: hidden;
+    }
+    .nav-container .nav-links-container {
+        margin-top: 5rem;
+    }
+    .nav-container ul li {
+        display: block;
+        padding-block: .8rem;
+    } 
+    .close-btn {
+        position: absolute;
+        margin-top: 1.5rem;
+        margin-inline: 0 !important;
+        right: 1.2rem;
+    }
+    .nav-links-container li ul {
+        display: none;
+    }
+    .nav-links-container li ul.sub-nav-display {
+        display: block;
+    }
+    
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: hsla(0, 0%, 8%, .5);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .show-modal {
+        opacity: 1;
+    }
+    
+}
+
+
+
+
+
+
+
+
